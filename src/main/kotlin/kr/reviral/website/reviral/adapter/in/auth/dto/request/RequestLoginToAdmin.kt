@@ -1,17 +1,17 @@
-package kr.reviral.website.reviral.adapter.`in`.auth.dto
+package kr.reviral.website.reviral.adapter.`in`.auth.dto.request
 
 /**
  *packageName    : kr.reviral.website.reviral.adapter.`in`.auth.dto
- * fileName       : RequestLoginToSuperAdmin
+ * fileName       : RequestLoginByAdmin
  * author         : joy58
- * date           : 2025-03-24
+ * date           : 2025-03-19
  * description    :
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 2025-03-24        joy58       최초 생성
+ * 2025-03-19        joy58       최초 생성
  */
-data class RequestLoginToSuperAdmin(
+data class RequestLoginToAdmin(
     val loginId: String,
-    val loginPw: String
+    val password: String
 ): RequestLoginDTO

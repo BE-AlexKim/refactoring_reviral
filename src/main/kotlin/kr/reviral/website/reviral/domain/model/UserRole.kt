@@ -12,5 +12,15 @@ package kr.reviral.website.reviral.domain.model
  * 2025-03-18        joy58       최초 생성
  */
 enum class UserRole {
-    PARTNER, ADMIN, SUPER_ADMIN, USER
+    PARTNER, ADMIN, SUPER_ADMIN, USER;
+
+    companion object {
+        fun from(role: String): UserRole =
+            try {
+                valueOf(role.uppercase())
+            }catch ( e: IllegalArgumentException) {
+                throw IllegalArgumentException("지원하지 않는 역할입니다.")
+            }
+    }
+
 }

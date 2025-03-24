@@ -1,5 +1,6 @@
 package kr.reviral.website.reviral.domain.port.auth.`in`
 
+import kr.reviral.website.reviral.adapter.`in`.auth.dto.request.RequestLoginDTO
 import kr.reviral.website.reviral.domain.model.JwtToken
 
 /**
@@ -15,7 +16,7 @@ import kr.reviral.website.reviral.domain.model.JwtToken
  */
 interface LoginUseCase {
 
-    fun login(loginId: String, password: String): JwtToken
+    fun login(request: RequestLoginDTO): JwtToken
 
     fun logout(userId: Long)
 

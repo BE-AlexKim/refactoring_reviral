@@ -1,4 +1,4 @@
-package kr.reviral.website.reviral.adapter.`in`.auth.dto
+package kr.reviral.website.reviral.adapter.`in`.auth.dto.request
 
 /**
  *packageName    : kr.reviral.website.reviral.adapter.`in`.auth.dto
