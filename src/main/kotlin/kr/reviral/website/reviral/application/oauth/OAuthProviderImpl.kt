@@ -4,7 +4,7 @@ import kr.reviral.website.reviral.adapter.out.persistence.oauth.OAuthServiceAdap
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.OAuthToken
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.ResponseOAuthUserInfo
 import kr.reviral.website.reviral.domain.model.Registration
-import kr.reviral.website.reviral.domain.port.auth.`in`.OAuthService
+import kr.reviral.website.reviral.domain.port.auth.`in`.OAuthProvider
 import org.springframework.stereotype.Service
 
 /**
@@ -19,9 +19,9 @@ import org.springframework.stereotype.Service
  * 2025-03-24        joy58       최초 생성
  */
 @Service
-class OAuthServiceImpl(
+class OAuthProviderImpl(
     private val oAuthServiceAdaptors: List<OAuthServiceAdaptor>
-): OAuthService {
+): OAuthProvider {
 
     override fun getRedirectUri(provider: Registration): String {
         val adaptor = oAuthServiceAdaptors.find { it.support(provider) }

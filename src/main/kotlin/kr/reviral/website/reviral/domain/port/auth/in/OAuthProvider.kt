@@ -15,7 +15,7 @@ import kr.reviral.website.reviral.domain.model.Registration
  * -----------------------------------------------------------
  * 2025-03-24        joy58       최초 생성
  */
-interface OAuthService {
+interface OAuthProvider {
 
     fun getRedirectUri(provider: Registration): String
 
