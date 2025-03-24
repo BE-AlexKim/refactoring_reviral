@@ -2,6 +2,7 @@ package kr.reviral.website.reviral.application.auth
 
 import kr.reviral.website.reviral.domain.model.JwtToken
 import kr.reviral.website.reviral.domain.port.auth.`in`.JwtTokenUseCase
+import kr.reviral.website.reviral.domain.port.auth.out.JwtProvider
 import org.springframework.stereotype.Service
 
 /**
@@ -16,9 +17,12 @@ import org.springframework.stereotype.Service
  * 2025-03-18        joy58       최초 생성
  */
 @Service
-class JwtTokenService: JwtTokenUseCase {
+class JwtTokenService(
+    private val jwtProvider: JwtProvider
+): JwtTokenUseCase {
 
     override fun reissueByRefreshToken(refreshToken: String): JwtToken {
         TODO("Not yet implemented")
+
     }
 }

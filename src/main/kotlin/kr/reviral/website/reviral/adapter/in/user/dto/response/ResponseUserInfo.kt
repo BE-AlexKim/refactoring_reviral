@@ -12,5 +12,6 @@ package kr.reviral.website.reviral.adapter.`in`.user.dto.response
  * 2025-03-18        joy58       최초 생성
  */
 data class ResponseUserInfo(
-    val username: String
+    val userId: Long,
+    val username: String,
 )
