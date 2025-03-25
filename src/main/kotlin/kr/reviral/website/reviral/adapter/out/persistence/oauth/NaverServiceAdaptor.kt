@@ -3,7 +3,7 @@ package kr.reviral.website.reviral.adapter.out.persistence.oauth
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.NaverToken
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.OAuthToken
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.ResponseOAuthUserInfo
-import kr.reviral.website.reviral.domain.model.Registration
+import kr.reviral.website.reviral.domain.enums.Registration
 import kr.reviral.website.reviral.domain.properties.OAuthProperties
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders

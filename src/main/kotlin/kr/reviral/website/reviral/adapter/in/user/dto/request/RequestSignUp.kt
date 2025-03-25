@@ -3,8 +3,8 @@ package kr.reviral.website.reviral.adapter.`in`.user.dto.request
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.persistence.EnumType
 import jakarta.persistence.Enumerated
-import kr.reviral.website.reviral.domain.model.Gender
-import kr.reviral.website.reviral.domain.model.Registration
+import kr.reviral.website.reviral.domain.enums.Gender
+import kr.reviral.website.reviral.domain.enums.Registration
 
 /**
  *packageName    : kr.reviral.website.reviral.adapter.`in`.user.dto.request

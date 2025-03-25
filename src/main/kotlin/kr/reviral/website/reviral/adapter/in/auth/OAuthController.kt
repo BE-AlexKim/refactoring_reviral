@@ -1,8 +1,8 @@
 package kr.reviral.website.reviral.adapter.`in`.auth
 
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.ResponseOAuthUserInfo
-import kr.reviral.website.reviral.domain.model.Registration
-import kr.reviral.website.reviral.domain.port.auth.`in`.OAuthProvider
+import kr.reviral.website.reviral.domain.enums.Registration
+import kr.reviral.website.reviral.domain.port.auth.`in`.OAuthService
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
@@ -24,24 +24,22 @@ import org.springframework.web.bind.annotation.RequestParam
 @Controller
 @RequestMapping("/api/v1/oauth/kakao")
 class OAuthController(
-    private val oAuthProvider: OAuthProvider
+    private val oAuthService: OAuthService
 ) {
 
     @GetMapping("/{provider}/redirect")
     fun getRedirectUri(
         @PathVariable provider: String
     ): String {
-        return "redirect: ${oAuthProvider.getRedirectUri(Registration.from(provider))}"
+        return "redirect: ${oAuthService.getRedirectUri(Registration.from(provider))}"
     }
 
     @GetMapping("/{provider}/callback")
-    fun setKakaoCallback(
+    fun callback(
         @RequestParam code: String,
         @PathVariable provider: String
     ): ResponseEntity<ResponseOAuthUserInfo> {
-        val oAuthToken = oAuthProvider.getAccessToken(code, Registration.from(provider))
-        val token = oAuthToken?.let { oAuthProvider.getUserInfo(it) }
-        return ResponseEntity.ok(token)
+        return ResponseEntity.ok(oAuthService.callback(code, Registration.from(provider)))
     }
 
 }

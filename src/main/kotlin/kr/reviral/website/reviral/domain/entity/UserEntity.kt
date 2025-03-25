@@ -1,8 +1,8 @@
 package kr.reviral.website.reviral.domain.entity
 
 import jakarta.persistence.*
-import kr.reviral.website.reviral.domain.model.Registration
-import kr.reviral.website.reviral.domain.model.UserRole
+import kr.reviral.website.reviral.domain.enums.Registration
+import kr.reviral.website.reviral.domain.enums.UserRole
 import org.hibernate.annotations.Comment
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority

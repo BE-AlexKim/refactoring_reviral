@@ -1,7 +1,7 @@
 package kr.reviral.website.reviral.adapter.`in`.user.dto.request
 
 import io.swagger.v3.oas.annotations.media.Schema
-import kr.reviral.website.reviral.domain.model.Gender
+import kr.reviral.website.reviral.domain.enums.Gender
 
 /**
  *packageName    : kr.reviral.website.reviral.adapter.`in`.user.dto.request

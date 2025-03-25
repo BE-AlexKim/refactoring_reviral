@@ -1,6 +1,6 @@
-package kr.reviral.website.reviral.application.auth
+package kr.reviral.website.reviral.application.service.auth
 
-import kr.reviral.website.reviral.domain.port.auth.`in`.AuthValidationUseCase
+import kr.reviral.website.reviral.domain.port.auth.`in`.AuthValidationService
 import org.springframework.stereotype.Service
 
 /**
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service
  * 2025-03-18        joy58       최초 생성
  */
 @Service
-class AuthValidationService: AuthValidationUseCase {
+class AuthValidationServiceImpl: AuthValidationService {
 
     override fun isValidationByPhoneNumber(phoneNumber: String): Boolean {
         TODO("Not yet implemented")

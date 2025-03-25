@@ -4,7 +4,7 @@ import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.KakaoToken
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.OAuthToken
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.ResponseKakaoUserInfo
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.ResponseOAuthUserInfo
-import kr.reviral.website.reviral.domain.model.Registration
+import kr.reviral.website.reviral.domain.enums.Registration
 import kr.reviral.website.reviral.domain.properties.OAuthProperties
 import org.springframework.http.*
 import org.springframework.stereotype.Component

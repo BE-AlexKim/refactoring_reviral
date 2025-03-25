@@ -11,7 +11,7 @@ package kr.reviral.website.reviral.domain.port.auth.`in`
  * -----------------------------------------------------------
  * 2025-03-18        joy58       최초 생성
  */
-interface AuthValidationUseCase {
+interface AuthValidationService {
 
     fun isValidationByPhoneNumber(phoneNumber: String): Boolean
 

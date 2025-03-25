@@ -1,8 +1,7 @@
 package kr.reviral.website.reviral.domain.port.auth.`in`
 
-import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.OAuthToken
 import kr.reviral.website.reviral.adapter.out.persistence.oauth.dto.ResponseOAuthUserInfo
-import kr.reviral.website.reviral.domain.model.Registration
+import kr.reviral.website.reviral.domain.enums.Registration
 
 /**
  *packageName    : kr.reviral.website.reviral.domain.port.auth.`in`
@@ -15,13 +14,11 @@ import kr.reviral.website.reviral.domain.model.Registration
  * -----------------------------------------------------------
  * 2025-03-24        joy58       최초 생성
  */
-interface OAuthProvider {
+interface OAuthService {
 
     fun getRedirectUri(provider: Registration): String
 
-    fun getAccessToken(code: String, provider: Registration): OAuthToken?
-
-    fun getUserInfo(oAuthToken: OAuthToken): ResponseOAuthUserInfo?
+    fun callback(code: String, provider: Registration): ResponseOAuthUserInfo?
 
     fun unlink()
 

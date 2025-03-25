@@ -1,7 +1,7 @@
 package kr.reviral.website.reviral.adapter.out.persistence.oauth.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import kr.reviral.website.reviral.domain.model.Registration
+import kr.reviral.website.reviral.domain.enums.Registration
 
 /**
  *packageName    : kr.reviral.website.reviral.adapter.`in`.auth.dto.response
