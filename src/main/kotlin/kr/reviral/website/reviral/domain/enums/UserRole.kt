@@ -1,4 +1,4 @@
-package kr.reviral.website.reviral.domain.model
+package kr.reviral.website.reviral.domain.enums
 
 /**
  *packageName    : kr.reviral.website.reviral.domain.model

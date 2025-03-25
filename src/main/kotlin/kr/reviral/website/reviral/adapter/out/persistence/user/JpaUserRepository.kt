@@ -14,5 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository
  * -----------------------------------------------------------
  * 2025-03-18        joy58       최초 생성
  */
-interface UserJpaRepository: JpaRepository<UserEntity,Long> {
+interface JpaUserRepository: JpaRepository<UserEntity,Long> {
 }

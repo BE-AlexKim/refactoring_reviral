@@ -1,7 +1,7 @@
 package kr.reviral.website.reviral.domain.entity
 
 import jakarta.persistence.*
-import kr.reviral.website.reviral.domain.model.Gender
+import kr.reviral.website.reviral.domain.enums.Gender
 import org.hibernate.annotations.Comment
 import java.time.LocalDateTime
 

@@ -13,9 +13,8 @@ import kr.reviral.website.reviral.domain.model.JwtToken
  * -----------------------------------------------------------
  * 2025-03-18        joy58       최초 생성
  */
-interface JwtTokenUseCase {
+interface JwtTokenService {
 
     fun reissueByRefreshToken(refreshToken: String): JwtToken
-
 
 }

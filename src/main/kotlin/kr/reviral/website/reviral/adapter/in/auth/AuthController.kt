@@ -3,7 +3,9 @@ package kr.reviral.website.reviral.adapter.`in`.auth
 import kr.reviral.website.reviral.adapter.`in`.auth.dto.request.RequestLoginToAdmin
 import kr.reviral.website.reviral.adapter.`in`.auth.dto.request.RequestLoginToUser
 import kr.reviral.website.reviral.adapter.`in`.auth.dto.request.RequestLoginToSuperAdmin
-import kr.reviral.website.reviral.application.auth.*
+import kr.reviral.website.reviral.application.service.auth.AuthValidationServiceImpl
+import kr.reviral.website.reviral.application.service.auth.JwtTokenServiceImpl
+import kr.reviral.website.reviral.application.usecase.auth.LoginUseCase
 import kr.reviral.website.reviral.domain.model.JwtToken
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -24,11 +26,9 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api/v1/auth")
 class AuthController(
-    private val loginUserService: LoginUserService,
-    private val loginAdminService: LoginAdminService,
-    private val loginSuperAdminService: LoginSuperAdminService,
-    private val authValidationService: AuthValidationService,
-    private val jwtTokenService: JwtTokenService
+    private val loginService: LoginUseCase,
+    private val authValidationServiceImpl: AuthValidationServiceImpl,
+    private val jwtTokenServiceImpl: JwtTokenServiceImpl
 ) {
 
     /**
@@ -39,21 +39,21 @@ class AuthController(
     fun loginByUser(
         @RequestBody request: RequestLoginToUser
     ): JwtToken {
-        return loginUserService.login(request)
+        return loginService.login(request)
     }
 
     @PostMapping("/admin/login")
     fun loginByAdmin(
         @RequestBody request: RequestLoginToAdmin
     ): JwtToken {
-        return loginAdminService.login(request)
+        return loginService.login(request)
     }
 
     @PostMapping("/super-admin/login")
     fun loginBySuperAdmin(
         @RequestBody request: RequestLoginToSuperAdmin
     ): JwtToken {
-        return loginSuperAdminService.login(request)
+        return loginService.login(request)
     }
 
     @PostMapping("/logout")
@@ -67,19 +67,19 @@ class AuthController(
     fun reissue(
         @RequestBody refreshToken: String
     ): JwtToken {
-        return jwtTokenService.reissueByRefreshToken(refreshToken)
+        return jwtTokenServiceImpl.reissueByRefreshToken(refreshToken)
     }
 
     @PostMapping("/email/authorize/validate")
     fun validationByEmail(
         @RequestBody phoneNumber: String
     ): Boolean {
-        return authValidationService.isValidationByPhoneNumber(phoneNumber)
+        return authValidationServiceImpl.isValidationByPhoneNumber(phoneNumber)
     }
 
     @PostMapping("/email/authorize/send")
     fun sendAuthorizeCodeToEmail() {
-        authValidationService
+        authValidationServiceImpl
     }
 
 }

@@ -2,6 +2,7 @@ package kr.reviral.website.reviral.domain.port.user.`in`
 
 import kr.reviral.website.reviral.adapter.`in`.user.dto.request.RequestSignUp
 import kr.reviral.website.reviral.adapter.`in`.user.dto.response.ResponseUserInfo
+import kr.reviral.website.reviral.domain.entity.UserEntity
 import kr.reviral.website.reviral.domain.model.User
 
 /**
@@ -19,7 +20,7 @@ interface UserService {
 
     fun save(request: RequestSignUp): ResponseUserInfo
 
-    fun getUserInfo(userId: Long): User
+    fun getUserInfo(userId: Long): UserEntity
 
     fun delete(userId: Long)
 

@@ -1,13 +1,13 @@
-package kr.reviral.website.reviral.application.auth
+package kr.reviral.website.reviral.domain.service.login
 
 import kr.reviral.website.reviral.adapter.`in`.auth.dto.request.RequestLoginDTO
+import kr.reviral.website.reviral.adapter.`in`.auth.dto.request.RequestLoginToSuperAdmin
 import kr.reviral.website.reviral.domain.model.JwtToken
-import kr.reviral.website.reviral.domain.port.auth.`in`.LoginUseCase
-import org.springframework.stereotype.Service
+import kr.reviral.website.reviral.domain.port.auth.`in`.LoginStrategy
 
 /**
  *packageName    : kr.reviral.website.reviral.application.auth
- * fileName       : AdminLoginService
+ * fileName       : SuperAdminLoginService
  * author         : joy58
  * date           : 2025-03-24
  * description    :
@@ -16,8 +16,8 @@ import org.springframework.stereotype.Service
  * -----------------------------------------------------------
  * 2025-03-24        joy58       최초 생성
  */
-@Service
-class LoginAdminService: LoginUseCase {
+
+class LoginSuperAdminStrategy: LoginStrategy {
 
     override fun login(request: RequestLoginDTO): JwtToken {
         TODO("Not yet implemented")
@@ -27,4 +27,5 @@ class LoginAdminService: LoginUseCase {
         TODO("Not yet implemented")
     }
 
+    override fun support(request: RequestLoginDTO): Boolean = request is RequestLoginToSuperAdmin
 }

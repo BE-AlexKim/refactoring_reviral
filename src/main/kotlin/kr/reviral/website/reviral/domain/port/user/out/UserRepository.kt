@@ -1,5 +1,6 @@
 package kr.reviral.website.reviral.domain.port.user.out
 
+import kr.reviral.website.reviral.adapter.`in`.user.dto.response.ResponseUserInfo
 import kr.reviral.website.reviral.domain.entity.UserEntity
 
 /**
@@ -20,5 +21,9 @@ interface UserRepository {
     fun findById(userId: Long): UserEntity
 
     fun save(user: UserEntity): UserEntity
+
+    fun deleteByUserId(userId: Long)
+
+    fun findUserAndUserInfoByUserId(userId: Long): ResponseUserInfo
 
 }

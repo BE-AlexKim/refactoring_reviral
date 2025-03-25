@@ -1,11 +1,10 @@
-package kr.reviral.website.reviral.application.auth
+package kr.reviral.website.reviral.domain.service.login
 
 import kr.reviral.website.reviral.adapter.`in`.auth.dto.request.RequestLoginDTO
 import kr.reviral.website.reviral.adapter.`in`.auth.dto.request.RequestLoginToUser
 import kr.reviral.website.reviral.adapter.out.persistence.user.UserPersistenceAdapter
 import kr.reviral.website.reviral.domain.model.JwtToken
-import kr.reviral.website.reviral.domain.port.auth.`in`.LoginUseCase
-import org.springframework.stereotype.Service
+import kr.reviral.website.reviral.domain.port.auth.`in`.LoginStrategy
 
 /**
  *packageName    : kr.reviral.website.reviral.application.auth
@@ -18,10 +17,10 @@ import org.springframework.stereotype.Service
  * -----------------------------------------------------------
  * 2025-03-18        joy58       최초 생성
  */
-@Service
-class LoginUserService(
+
+class LoginUserStrategy(
     private val userPersistenceAdapter: UserPersistenceAdapter,
-): LoginUseCase {
+): LoginStrategy {
 
     override fun login(request: RequestLoginDTO): JwtToken {
         if ( request is RequestLoginToUser ) {
@@ -34,5 +33,7 @@ class LoginUserService(
     override fun logout(userId: Long) {
         TODO("Not yet implemented")
     }
+
+    override fun support(request: RequestLoginDTO): Boolean = request is RequestLoginToUser
 
 }
